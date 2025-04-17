@@ -189,6 +189,19 @@ export const feedbackSchema = z.object({
   finalAssessment: z.string(),
 });
 
+export const modelAnswerSchema = z.object({
+  totalScore: z.number(),
+  categoryScores: z.tuple([
+    z.object({
+      name: z.literal("Model Questions"),
+      answers: z.string(),
+    })
+  ]),
+  strengths: z.array(z.string()),
+  areasForImprovement: z.array(z.string()),
+  finalAssessment: z.string(),
+});
+
 export const interviewCovers = [
   "/adobe.png",
   "/amazon.png",
